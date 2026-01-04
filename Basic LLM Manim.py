@@ -52,10 +52,10 @@ class LLM(ThreeDScene):
         t = Text("Let's explore this using a simple example - a character-level model", 
                  font=FONT, font_size=TITLE_SIZE, line_spacing=1.5)
         sub = Text("Predicting the next character from a tiny sequence", font_size=28, color=BLUE, font=FONT).next_to(t, DOWN, buff=1)
-        self.play(Write(t),run_time=2)
-        self.wait(1)
+        self.play(FadeIn(t),run_time=2)
+        self.wait(2)
         self.play(FadeIn(sub, shift=UP),run_time=2)
-        self.wait(3)
+        self.wait(11)
         self.clear()
 
     def p3_training_data(self):
@@ -65,12 +65,13 @@ class LLM(ThreeDScene):
         goal = Text("Goal: predict the next character, without any input to the model", font_size=24, font=FONT,color=YELLOW).to_edge(DOWN, buff=2)
         self.add(title)
         self.wait(1)
-        self.play(Write(text), run_time=2)
+        self.play(FadeIn(text), run_time=2)
+        self.wait(1)
+        self.play(FadeIn(data), run_time=2)
         self.wait(2)
-        self.play(Write(data), run_time=2)
+        self.play(FadeIn(goal), run_time=2)
         self.wait(2)
-        self.play(Write(goal), run_time=2)
-        self.wait(3)
+        self.wait(8)
         self.clear()
 
     def p4_vocab_and_tokenization(self):
@@ -136,7 +137,7 @@ class LLM(ThreeDScene):
         # ============================================================
         # P4 Add to scene
         self.add(title)
-        self.play(Write(title1), run_time=10)
+        self.play(FadeIn(title1), run_time=3)
         self.wait(3)
         self.add(matrix1)
         self.wait(1)
@@ -147,15 +148,15 @@ class LLM(ThreeDScene):
         self.add(map_text)
         self.wait(1)
         self.play(FadeIn(separator))
-        self.wait(1)
-        self.play(Write(title2), run_time=7)
+        self.wait(10)
+        self.play(FadeIn(title2), run_time=3)
         self.wait(3)
-        self.play(Write(text6), run_time=5)
-        self.wait(4)
+        self.play(FadeIn(text6), run_time=3)
+        self.wait(1)
         
         
 
-        self.wait(1)
+        #self.wait(1)
         self.clear()
 
     def p5_input_target_mapping(self):
@@ -219,24 +220,24 @@ class LLM(ThreeDScene):
 
 
         self.add(title)
-        self.play(Write(textgroup1), run_time=10)
+        self.play(FadeIn(textgroup1), run_time=10)
         
         
         self.play(FadeIn(group1))
         self.wait(2)
         self.play(Create(box1),run_time=1)
         self.wait(1)
-        self.play(Write(map_text1))
-        self.wait(2)
-        self.play(Write(arrow3),Write(map_text2), run_time=3)
-        self.wait(2)
+        self.play(FadeIn(map_text1))
+        self.wait(1)
+        self.play(FadeIn(arrow3),FadeIn(map_text2), run_time=1)
+        self.wait(1)
         self.play(FadeIn(group2))
-        self.wait(2)
+        self.wait(1)
         self.play(Create(box2),run_time=1)
         self.wait(1)
-        self.play(Write(map_text3))
-        self.wait(2)
-        self.wait(3)
+        self.play(FadeIn(map_text3))
+        self.wait(1)
+        #self.wait(5)
 
         
         self.clear()
@@ -371,25 +372,25 @@ class LLM(ThreeDScene):
         # -------------------------------------------------
         # Animations
         # -------------------------------------------------
-        self.play(Write(title))
+        self.play(FadeIn(title))
         self.wait(0.5)
 
         for box, arrow, expl in zip(boxes[:-1], arrows, explanations[:-1]):
             self.play(FadeIn(box),run_time=1.5)
-            self.play(Write(expl),run_time=3.5)
+            self.play(FadeIn(expl),run_time=3)
             self.play(GrowArrow(arrow))
             
 
         self.play(FadeIn(boxes[-1]))
         self.play(FadeIn(explanations[-1]))
-        
+        self.wait(4)
         self.play(FadeIn(separator))
         self.wait(1)
         self.play(FadeIn(math_group),runtime=3)
         self.wait(5)
-        self.play(Write(learning_text),runtime=3)
+        self.play(FadeIn(learning_text),runtime=3)
 
-        self.wait(7)
+        self.wait(6)
         self.clear()
 
     def p7_training_big_picture(self):
@@ -426,15 +427,15 @@ class LLM(ThreeDScene):
         
         #arrows = VGroup(*[Arrow(flow[i], flow[i+1]) for i in range(len(flow)-1)])
         self.add(title)
-        self.play(Write(textgroup1), run_time=10)
-        self.wait(4)
+        self.play(FadeIn(textgroup1), run_time=3)
+        self.wait(12)
         self.add(matrix1)
         self.wait(3)
-        self.play(Write(textgroup2), run_time=15)
-
+        self.play(FadeIn(textgroup2), run_time=3)
+        self.wait(28)
         self.play(Create(box1),run_time=2)
-        self.play(Write(text8), run_time=3)
-        self.wait(5)
+        self.play(FadeIn(text8), run_time=3)
+        self.wait(2)
         self.clear()
 
     def p7_token_and_position_embeddings(self):
@@ -472,13 +473,13 @@ class LLM(ThreeDScene):
         self.add(objectgroup1)
         self.wait(2)
         self.play(ReplacementTransform(objectgroup1, matrix2), run_time=5)
-        self.play(Write(textgroup1), run_time=8)
-        self.wait(2)
+        self.play(FadeIn(textgroup1), run_time=8)
+        self.wait(1)
         
-        self.play(Write(arrow1), run_time=2)
+        self.play(FadeIn(arrow1), run_time=1)
         self.wait(1)
         self.play(FadeIn(matrix3),run_time=1)
-        self.wait(3)
+        self.wait(15)
         self.clear()
 
     def p8_transformer_block(self):
@@ -588,29 +589,29 @@ class LLM(ThreeDScene):
         self.add(title)
         self.add(objectgroup1)
         self.play(ReplacementTransform(objectgroup1, objectgroup2), run_time=5)
-        self.play(Write(textgroup1), run_time=5)
+        self.play(FadeIn(textgroup1), run_time=5)
 
         self.play(FadeOut(matrix4), run_time=1.5)
         self.play(FadeIn(matrix5), run_time=1.5)
         self.wait(1)
         
-        self.play(Write(equation1), run_time=2)
-        self.play(Write(text1_1), run_time=2)
+        self.play(FadeIn(equation1), run_time=2)
+        self.play(FadeIn(text1_1), run_time=2)
         
         self.wait(4)
         self.play(FadeOut(equation1),FadeOut(text1_1), run_time=1.5)
         
-        self.play(Write(textgroup2), run_time=8)
+        self.play(FadeIn(textgroup2), run_time=8)
         
         
         self.play(Create(curve1),Create(curve2),Create(curve3),Create(curve4),Create(curve5),Create(curve6),Create(curve7),run_time=2)
 
         self.play(FadeOut(matrix5), run_time=1.5)
         self.play(FadeIn(matrix6), run_time=1.5)
-        self.wait(1)
+        self.wait(5)
 
-        self.play(Write(text3_1), run_time=5)
-        self.play(Write(text3_2), run_time=5)
+        self.play(FadeIn(text3_1), run_time=5)
+        self.play(FadeIn(text3_2), run_time=5)
 
         # CAT
         self.play(
@@ -627,33 +628,36 @@ class LLM(ThreeDScene):
         )
         self.wait(1)   
 
-        self.wait(4)
+        self.wait(10)
         self.play(FadeOut(curve1),FadeOut(curve2),FadeOut(curve3),FadeOut(curve3),FadeOut(curve4),FadeOut(curve5),FadeOut(curve6),FadeOut(curve7), run_time=1.5)
         self.play(FadeOut(text3_1),FadeOut(text3_2),FadeOut(cat), run_time=1.5)
         self.wait(1) 
-        self.play(Write(textgroup3), run_time=7)
+        self.play(FadeIn(textgroup3), run_time=3)
+        self.wait(6)
 
         self.play(FadeOut(matrix6), run_time=1.5)
         self.play(FadeIn(matrix7), run_time=1.5)
         self.wait(1)
 
-        self.play(Write(text5_1), run_time=6)
-        self.wait(4)
+        self.play(FadeIn(text5_1), run_time=6)
+        self.wait(7)
         self.play(FadeOut(text5_1), run_time=1.5)
 
-        self.play(Write(textgroup4), run_time=8)
+        self.play(FadeIn(textgroup4), run_time=8)
 
         self.play(FadeOut(matrix7), run_time=1.5)
         self.play(FadeIn(matrix8), run_time=1.5)
         self.wait(1)
 
-        self.play(Write(text7_1), run_time=7)
-        self.play(Write(text7_2), run_time=7)
+        self.play(FadeIn(text7_1), run_time=3)
+        self.wait(7)
+        self.play(FadeIn(text7_2), run_time=3)
+        self.wait(7)
 
-        self.wait(2)
+        self.wait(10)
         
 
-        self.wait(3)
+        self.wait(5)
         self.clear()
 
     
@@ -728,55 +732,56 @@ class LLM(ThreeDScene):
         self.add(title)
         self.add(objectgroup1)
 
-        self.play(Write(text1), run_time=4)
+        self.play(FadeIn(text1), run_time=4)
 
         self.play(FadeOut(matrix2), run_time=1.5)
         self.play(FadeIn(matrix3), run_time=1.5)
         self.wait(1)
 
 
-        self.play(Write(text2), run_time=5)
+        self.play(FadeIn(text2), run_time=5)
         
         self.play(FadeOut(matrix3), run_time=1.5)
         self.play(FadeIn(matrix4), run_time=1.5)
         self.wait(1)
 
 
-        self.play(Write(text3), run_time=5)
+        self.play(FadeIn(text3), run_time=5)
 
         self.play(FadeOut(matrix4), run_time=1.5)
         self.play(FadeIn(matrix5), run_time=1.5)
         self.wait(1)
 
         # self.play(FadeIn(d1), FadeIn(d2),FadeIn(d3), FadeIn(d4),FadeIn(d5) ,run_time=1.5)
-        self.play(FadeIn(n1), FadeIn(n2),FadeIn(n3), FadeIn(n4),FadeIn(n5) ,run_time=2)
-        self.play(FadeIn(a1), FadeIn(a2),FadeIn(a3), FadeIn(a4),FadeIn(a5) ,run_time=2)
-        self.wait(1)
+        self.play(FadeIn(n1), FadeIn(n2),FadeIn(n3), FadeIn(n4),FadeIn(n5) ,run_time=1)
+        self.play(FadeIn(a1), FadeIn(a2),FadeIn(a3), FadeIn(a4),FadeIn(a5) ,run_time=1)
+        #self.wait(1)
 
-        self.play(FadeIn(matrix6),FadeIn(text7), run_time=2)
-        self.wait(1)
+        self.play(FadeIn(matrix6),FadeIn(text7), run_time=1)
+        #self.wait(1)
         
-        self.play(FadeIn(rect), run_time=2)
-        self.wait(2)
+        self.play(FadeIn(rect), run_time=1)
+        self.wait(1)
 
-        self.play(Write(text8), run_time=7)
-        self.wait(3)
+        self.play(FadeIn(text8), run_time=2)
+        self.wait(7)
 
 
-        self.play(Write(text4), run_time=3)
+        self.play(FadeIn(text4), run_time=3)
         self.wait(1)
         
         self.play(FadeOut(text8), run_time=1.5)
         self.wait(1)
         
-        self.play(Write(text5), run_time=8)
-        self.wait(1)
-        self.play(Write(text9), run_time=8)
+        self.play(FadeIn(text5), run_time=3)
+        self.wait(6)
+        self.play(FadeIn(text9), run_time=3)
+        self.wait(4)
         
         self.wait(1)
-        self.play(Write(text6), run_time=5)
+        self.play(FadeIn(text6), run_time=3)
 
-        self.wait(6)
+        self.wait(8)
         self.clear()
 
 
@@ -789,13 +794,13 @@ class LLM(ThreeDScene):
         text5 = Text("“Well,” said the blew, shiving passled. \n\n “‘Weak, he said,” said Hermione, hurried. \n\n “Place saved in the castle green sight, Malfoy's leg.”", font_size=28, color=BLUE, font=FONT).next_to(text4, DOWN, buff=.5)   
         
 
-        self.play(Write(text1),run_time=3)
+        self.play(FadeIn(text1),run_time=3)
         self.wait(2)
         self.play(FadeIn(text2),FadeIn(text3),run_time=3)
         self.wait(5)
         self.play(FadeOut(text1),FadeOut(text2),FadeOut(text3),run_time=1.5)
 
-        self.play(Write(text4),run_time=3)
+        self.play(FadeIn(text4),run_time=3)
         self.wait(2)
         self.play(FadeIn(text5),run_time=3)
         self.wait(5)
@@ -805,20 +810,20 @@ class LLM(ThreeDScene):
         text1 = Text("As expected, the output is not yet meaningful, mainly because:", font=FONT, font_size=24, line_spacing=1.5).shift(UP*2.1)
         text2 = Text("- It is a character-level model, not a word-level one", font_size=24, color=BLUE, font=FONT).next_to(text1, DOWN, buff=.2)
         text3 = Text("- It was trained on a very small dataset", font_size=24, color=BLUE, font=FONT).next_to(text2, DOWN, buff=.2).align_to(text2, LEFT)
-        text4 = Text("Despite that, the model has clearly learned English-like structure, punctuation, and dialogue patterns.", font_size=22, font=FONT).next_to(text3, DOWN, buff=0.6).move_to(ORIGIN, aligned_edge=UP)
+        text4 = Text("Despite that, the model has clearly learned English-like structure, punctuation, and dialogue patterns", font_size=22, font=FONT).next_to(text3, DOWN, buff=0.6).move_to(ORIGIN, aligned_edge=UP)
 
-        text5 = Text("Large Language Models are just this idea scaled up with more data, more parameters, and more compute.", font=FONT, font_size=22, line_spacing=1, color=YELLOW).next_to(text4, DOWN, buff=0.8)
+        text5 = Text("Large Language Models are just this idea scaled up with more data, more parameters, and more compute", font=FONT, font_size=22, line_spacing=1, color=YELLOW).next_to(text4, DOWN, buff=0.8)
               
 
-        self.play(Write(text1),run_time=3)
+        self.play(FadeIn(text1),run_time=3)
         self.wait(2)
-        self.play(Write(text2),run_time=2)
-        self.play(Write(text3),run_time=2)
+        self.play(FadeIn(text2),run_time=2)
+        self.play(FadeIn(text3),run_time=2)
         self.wait(3)
-        self.play(Write(text4),run_time=5)
+        self.play(FadeIn(text4),run_time=5)
         self.wait(2)
         self.play(FadeIn(text5),run_time=3)
-        self.wait(6)
+        self.wait(17)
         self.clear()
 
     
