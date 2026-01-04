@@ -14,7 +14,7 @@ Includes:
  - Animation / Manim code
  - Excel calculations for reference
 
-YouTube link: 
+YouTube link: https://youtu.be/670CyK3oL3o
 
 ### Tools
 - Manim (Python)
